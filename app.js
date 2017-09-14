@@ -8,5 +8,9 @@ var apos = require('apostrophe')({
 
   modules: {
     // Add custom apostrophe-modules and their respective configuration here!
+    'apostrophe-db': {
+      // uri: 'mongodb://' + process.env.MONGODB_PORT_27017_TCP_ADDR + ':' + process.env.MONGODB_PORT_27017_TCP_PORT + '/mydb'
+      uri: 'mongodb://mongodb:27017/apostrophe-ehealth'
+    }
   }
 });

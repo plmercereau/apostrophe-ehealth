@@ -7,7 +7,6 @@ WORKDIR /app
 # Bundle app source
 COPY . /app
 RUN npm install
-
 # Mount persistent storage
 VOLUME /app/data
 VOLUME /app/public/uploads
