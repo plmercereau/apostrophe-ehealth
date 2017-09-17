@@ -7,10 +7,11 @@ var apos = require('apostrophe')({
   // configuring user acounts.
 
   modules: {
-    // Add custom apostrophe-modules and their respective configuration here!
+    // 'apostrophe-templates': { viewsFolderFallback: __dirname + '/views' },
     'apostrophe-db': {
       // uri: 'mongodb://' + process.env.MONGODB_PORT_27017_TCP_ADDR + ':' + process.env.MONGODB_PORT_27017_TCP_PORT + '/mydb'
       uri: 'mongodb://mongodb:27017/apostrophe-ehealth'
-    }
+    },
+    'link-widgets': {}
   }
 });
