@@ -1,0 +1,15 @@
+{% extends data.outerLayout %}
+
+{% block main %}
+    Tool Collection
+{{
+    apos.area(data.page, 'body', {
+        widgets: {
+          'apostrophe-rich-text': {},
+          'apostrophe-images': {},
+          'tool': {}
+        }
+      }
+    )
+}}
+{% endblock %}    

@@ -1,0 +1,42 @@
+{% import 'apostrophe-ui:components/dropdowns.html' as dropdowns with context -%}
+
+  <div data-apos-admin-bar>
+      {% for item in data.items %}
+        <div class="mdl-navigation__link">
+          {% if item.menu %}
+            <div class="apos-dropdown apos-dropdown--admin apos-dropdown--down" data-apos-dropdown="down" data-apos-actionable>
+          {% endif %}
+          <div class="apos-admin-bar-item-inner"
+            {%- if not item.menu -%}
+              data-apos-admin-bar-item="{{ item.name }}"
+            {%- endif -%}
+          >
+          {%- if item.options.href -%}
+            <a href="{{ apos.prefix }}{{ item.options.href }}">
+          {%- endif -%}
+            {{ __(item.label | d('')) }}
+          {%- if item.options.href -%}
+            </a>
+          {%- endif -%}
+          </div>
+          {% if item.menu %}
+            <ul class="apos-dropdown-items" data-apos-dropdown-items>
+              {% for subItem in item.items %}
+                <li class="apos-dropdown-item" data-apos-admin-bar-item="{{ subItem.name }}">
+                  {%- if subItem.options.href -%}
+                    <a href="{{ apos.prefix }}{{ subItem.options.href }}">
+                  {%- endif -%}
+                  {{ __(subItem.label | d('')) }}
+                  {%- if subItem.options.href -%}
+                    </a>
+                  {%- endif -%}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if item.menu %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+  </div>
